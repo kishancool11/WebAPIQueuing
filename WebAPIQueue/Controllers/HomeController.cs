@@ -49,6 +49,8 @@ namespace WebAPIQueue.Controllers
                 db.SaveChanges();
 
                 var Identifier = new APIViewModel { Identifier = u.Identifier };
+
+                // Call Local API for Queue 
                 HttpClient client = new HttpClient();
                 client.BaseAddress =  new Uri("http://localhost:50317/");
                 string uri = "api/Case/requestSave";
